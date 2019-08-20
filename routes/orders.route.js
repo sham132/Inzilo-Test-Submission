@@ -1,9 +1,8 @@
 const express = require('express');
-const mysql = require('mysql');
 const router = express.Router();
 const config = require('../connectors/mysql');
 const util = require('util'); // node native promisify
-const ValidateEmail=require('../hooks/hooks');
+const ValidateEmail = require('../hooks/hooks');
 const query = util.promisify(config.query).bind(config);
 try {
     router.post('/addOrder', async (req, res) => {
@@ -42,13 +41,6 @@ try {
 
             }
         }
-
-
-
-
-
-
-
     });
     // for delete Order
     router.delete('/deleteOrder/:id', async (req, res) => {
@@ -74,9 +66,6 @@ try {
 
             let OrderID = rows_1[0]["ID"];
             let RestaurentID = rows[0]["ID"];
-
-
-
             let requestedOrder = `DELETE  from tblorders where ID='${OrderID}' AND RestaurentID=${RestaurentID}`;
             console.log(requestedOrder);
             let result = await query(requestedOrder);
@@ -95,10 +84,6 @@ try {
             }
 
         }
-
-
-
-
     });
 
     // get order info
@@ -119,10 +104,6 @@ try {
                 message: `No Record Found...`
             });
         }
-
-
-
-
     });
 
     router.put('/updateOrder/:id', async function (req, res) {
@@ -142,7 +123,7 @@ try {
 
         } else {
             let RestaurentID = rowss[0]["ID"];
-            let UpdatedData = `Update tblorders Set  CustomerEmail='${CustomerEmail}',RestaurentID='${RestaurentID}', OrderItem='${OrderItem}', OrderPrice='${OrderPrice}'  where ID=${orderID}`;
+            let UpdatedData = `Update tblorders Set  CustomerEmail='${CustomerEmail}',RestaurentID='${RestaurentID}', OrderItem='${OrderItem}', OrderPrice='${OrderPrice}',Updated_at='${new Date().toJSON().slice(0, 19).replace('T', ' ')}'  where ID=${orderID}`;
             let rows = await query(UpdatedData);
             if (rows.affectedRows > 0) {
                 res.json({
@@ -151,9 +132,6 @@ try {
                 });
             }
         }
-
-
-
     });
     router.get('/getOrderList/', async function (req, res) {
         let requestedOrderList = `SELECT ID,CustomerEmail,RestaurentID,OrderItem,OrderPrice,Created_AT from tblorders`;
