@@ -1,0 +1,213 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "Inzilo Test Nodejs Server",
+		"version": "1.0",
+		"title": "Inzilo Test Server",
+		"termsOfService": "",
+		"contact": {},
+		"license": {"name":"Inzilo EULA"}
+	},
+	"host": "localhost:4000",
+	"basePath": "/",
+	"tags": [],
+	"schemes": ["http"],
+	"consumes": ["application/json"],
+	"produces": ["application/json"],
+	"paths":
+	{
+		
+        "/restaurent/addRestaurent": {
+			"post": {
+				"description": "",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"restaurentname":{ "type": "string", "description":""}
+							
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success"
+					}
+				}
+			}
+		},
+		"/restaurent/deleteRestaurent/{ID}": {
+			"delete": {
+				"description": "",
+				"parameters": [
+				{
+					"name": "ID",
+					"in": "path",
+					"description": "",
+					"required": true,
+					"type": "string",
+					"format": ""
+				}
+				
+				],
+				"responses": {
+					"200":{
+						"description":"success"
+						
+					}
+				}
+			}
+		},
+		"/restaurent/getRestaurentList": {
+			"get": {
+				"description": "",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success"
+						
+					}
+				}
+			}
+		},
+         "/order/addOrder": {
+			"post": {
+				"description": "",
+				"parameters": [
+				{
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"CustomerEmail":{ "type": "string", "description":""},
+                            "RestaurentName":{ "type": "string", "description":""},
+                            "OrderItem":{ "type": "string", "description":""},
+                            "OrderPrice":{ "type": "string", "description":""}
+							
+						}
+					}
+				}
+				],
+				"responses": {
+					"200":{
+						"description":"success"
+					}
+				}
+			}
+		},
+      "/order/deleteOrder/{ID}": {
+			"delete": {
+				"description": "",
+				"parameters": [
+				{
+					"name": "ID",
+					"in": "path",
+					"description": "",
+					"required": true,
+					"type": "string",
+					"format": ""
+				},
+                {
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"RestaurentName":{ "type": "string", "description":""}
+							
+						}
+					}
+				}
+				
+				],
+				"responses": {
+					"200":{
+						"description":"success"
+						
+					}
+				}
+			}
+		},
+        "/order/getOrderbyPk/{ID}": {
+			"get": {
+				"description": "",
+				"parameters": [
+				{
+					"name": "ID",
+					"in": "path",
+					"description": "",
+					"required": true,
+					"type": "string",
+					"format": ""
+				}
+				
+				],
+				"responses": {
+					"200":{
+						"description":"success"
+						
+					}
+				}
+			}
+		},
+        "/order/getOrderList": {
+			"get": {
+				"description": "",
+				"parameters": [
+				],
+				"responses": {
+					"200":{
+						"description":"success"
+						
+					}
+				}
+			}
+		},
+        "/order/updateOrder/{ID}": {
+			"put": {
+				"description": "",
+				"parameters": [
+				{
+					"name": "ID",
+					"in": "path",
+					"description": "",
+					"required": true,
+					"type": "string",
+					"format": ""
+				},
+                {
+					"name": "body",
+					"in": "body",
+					"schema": {
+						"type": "object",
+						"properties":{
+							"CustomerEmail":{ "type": "string", "description":""},
+                            "RestaurentName":{ "type": "string", "description":""},
+                            "OrderItem":{ "type": "string", "description":""},
+                            "OrderPrice":{ "type": "string", "description":""}
+							
+						}
+					}
+				}
+				
+				],
+				"responses": {
+					"200":{
+						"description":"success"
+						
+					}
+				}
+			}
+		}
+        
+	}
+		
+
+		
+}
